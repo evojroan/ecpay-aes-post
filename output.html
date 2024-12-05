@@ -1,0 +1,69 @@
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+      <title>顯示文本</title>
+  </head>
+  <body>
+    <h2>1. 發送 request(Data 加密前)</h2>
+    <pre>{
+  "MerchantID": 2000132,
+  "RqHeader": {
+    "Timestamp": 1733215557
+  },
+  "Data": {
+    "MerchantID": 2000132,
+    "RelateNumber": 1733215557,
+    "CustomerName": "alicelin",
+    "CustomerAddr": "台北市大馬路1號",
+    "CustomerPhone": "0999999999",
+    "CustomerEmail": "alicelin@test.com",
+    "Print": 1,
+    "Donation": 0,
+    "TaxType": 1,
+    "SalesAmount": 1000,
+    "Items": [
+      {
+        "ItemName": "Product1",
+        "ItemCount": 1,
+        "ItemWord": "pcs",
+        "ItemPrice": 500,
+        "ItemAmount": 500
+      },
+      {
+        "ItemName": "Product2",
+        "ItemCount": 1,
+        "ItemWord": "pcs",
+        "ItemPrice": 500,
+        "ItemAmount": 500
+      }
+    ],
+    "InvType": "07"
+  }
+}</pre>
+    <h2>2. 發送 request(Data 加密後)</h2>
+    <pre>{
+  "MerchantID": 2000132,
+  "RqHeader": {
+    "Timestamp": 1733215557
+  },
+  "Data": "XeEOdHpTRvxKEqs/JD9RSRJ2Cfu1YWlq5AJ9R3T5JSwF+XMtYVGAaLnolyIv7BEmaloNmgjFcZfgITDozs+mMpThV3GkUqP5gfTsLJDEravWFD4dQLYC9SFoTgxEmmEWwQHZ/Xa9mpzh+mETTsJn4YD1uAujA/lihVoS4yqi+3tjh5Utwei5w2rXBkUletJ1fUCxry+bySZzbLKyRxrRqJSALBzg5lKsgqgmwcvS6PtcCsGtWTK3uIvVV5H5eNHc2t4RbDBSPAmxRwredPYeZ9vA6ub2sf2TAJ+6KOOdUj6ej+RjVuXYrvBd21oJ5W5zTagoikbtfZ4D99bVzCVbSshHDFP6KjTJKlKng38aYlU6vV6UFPFlctb3GHmO0rtlz9jK7qmoTOu5rjZNG3ufTOJpyI2p079L9kCNXCsblag1PMAj7iuCcL1bVWOikZuiGWAhSL9GPMtIQfc8Q9uAZ5E5yDl33dmT2qKFVpAYlgmF3DvhkIp3YZMvmuZPIChLlOa4ykefv4t5McnP87NAlfKtnEh8ShrDQml/U6b0QWCtiBnfxtAcAPhsOTPjtNxPCvSdi2r+8s+hTT4MdQGiQgRlgkHfTK+ZEAWIln9L6AlIphtAQvLDVZ4v320AlKbXIYGXTpAVFk6YCPMjb/Wcyx7FzwLHHmzTHpgZvwIkt+uQJmVauuDAdvQ2ijTZOmmM0IUhJpUtY5u9lhdDzzcUejWt7nJvMVXptGSEovZ9dZAj1SpI34OT2HmZkcpRlCLcc2O9gktXj/LSwzM0rWmCq9ngjrMGmuUKgnvMF0RayW6M5jU4FGy8RBIaaNWhDYrSc2TYLeTdgusLpmXY9Gau5WvckhFkEjO10dqhjJnMtZ3+k3lm083LIPkiot5h2ktkPRv/WxYfUjZ9Pb6xEWzedMmQzKP3HDfGQmvdooajBt8="
+}</pre>
+    <h2>3. 綠界回傳：</h2>
+    <pre>{
+  "PlatformID": 0,
+  "MerchantID": 2000132,
+  "RpHeader": {
+    "Timestamp": 1733215558,
+    "RqID": "4b5af87a-be50-499c-b42b-7d7296e35654",
+    "Revision": null
+  },
+  "TransCode": 1,
+  "TransMsg": "Success",
+  "Data": "6xafbXXjyQnBuHWKr5nDl3elIhyu1OUPiZsXnreThwQMIYbPFyWZHL9ALxDT9maQm1zzov+o2Suh56+NpeqrtK7A6EwTVdAJGbl/4ATxEScKukTLEjpSflzkNBeN513sqfGsjM8REOlO29AJFOeRnija6ghyY+3THmh8kCSHXTBWDPcgTa44ucw5Kt+6jj6TLIXbOMYjlspVRazIAEdbhv6ZXsr0ebmyWaLtYr7jjdWqSHNUm9WBGLQEvtT0QmBvzwk7yNloWmNIU4Mfz/NALs1SuvGXsMQq37uVZWN32LO5nKQ3rDul/G1VUj8wFFhT"
+}</pre>
+    <h2>4. Data 解密後：</h2>
+    <pre>{"RtnCode":1,"RtnMsg":"開立發票成功","InvoiceNo":"VF10017027","InvoiceDate":"2024-12-03+16:45:57","RandomNumber":"8139"}</pre>
+  </body>
+  </html>
+  
