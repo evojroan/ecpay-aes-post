@@ -6,6 +6,7 @@ import crypto from "crypto";
 const timenow = Math.floor(Date.now() / 1000);
 
 //一、選擇帳號與金鑰
+
 const MerchantID = 2000132;
 const HashKey = "ejCk326UnaZWKisg"; //2000132 電子發票/
 const HashIV = "q9jcZX8Ib9LM8wYk"; //2000132 電子發票
@@ -18,40 +19,41 @@ const HashIV = "q9jcZX8Ib9LM8wYk"; //2000132 電子發票
 //const HashIV = "EkRm7iFT261dpevs"; //3002607 站內付 2.0 金流
 
 //二、選擇要呼叫的節點
-//const APIURL = "https://einvoice-stage.ecpay.com.tw/B2CInvoice/Issue";
-const APIURL="https://einvoice-stage.ecpay.com.tw/B2CInvoice/GetAllowanceList"
+const APIURL = "https://einvoice-stage.ecpay.com.tw/B2CInvoice/Issue";
+
 
 //三、輸入 Data
-const Data= {"MerchantID":"2000132","SearchType":"2","InvoiceNo":"VF10017774","Date":"2024-12-04"}
-// const Data = {
-//   MerchantID: MerchantID,
-//   RelateNumber: timenow,
-//   CustomerName: "alicelin",
-//   CustomerAddr: "台北市大馬路1號",
-//   CustomerPhone: "0999999999",
-//   CustomerEmail: "alicelin@test.com",
-//   Print: 1,
-//   Donation: 0,
-//   TaxType: 1,
-//   SalesAmount: 1000,
-//   Items: [
-//     {
-//       ItemName: "Product1",
-//       ItemCount: 1,
-//       ItemWord: "pcs",
-//       ItemPrice: 500,
-//       ItemAmount: 500,
-//     },
-//     {
-//       ItemName: "Product2",
-//       ItemCount: 1,
-//       ItemWord: "pcs",
-//       ItemPrice: 500,
-//       ItemAmount: 500,
-//     },
-//   ],
-//   InvType: "07",
-// };
+
+
+ const Data = {
+  MerchantID: MerchantID,
+  RelateNumber: timenow,
+  CustomerName: "alicelin",
+  CustomerAddr: "台北市大馬路1號",
+  CustomerPhone: "0999999999",
+  CustomerEmail: "alicelin@test.com",
+  Print: 1,
+  Donation: 0,
+  TaxType: 1,
+  SalesAmount: 1000,
+  Items: [
+    {
+      ItemName: "Product1",
+      ItemCount: 1,
+      ItemWord: "pcs",
+      ItemPrice: 500,
+      ItemAmount: 500,
+    },
+    {
+      ItemName: "Product2",
+      ItemCount: 1,
+      ItemWord: "pcs",
+      ItemPrice: 500,
+      ItemAmount: 500,
+    },
+  ],
+  InvType: "07",
+};
 
 //四、以下不用調整，會自動計算
 
@@ -102,16 +104,36 @@ const PayloadAfterAES = {
   <html>
   <head>
       <title>顯示文本</title>
+      <style>
+      
+        .json-content { 
+        width:50%;
+        word-wrap:break-word;
+          white-space: pre-wrap;
+          font-family: monospace;
+          background-color: #f5f5f5;
+          padding: 10px;
+        }
+      </style>
   </head>
   <body>
+  <div>
+
+  <h2>呼叫 API：</h2>
+  <div class="json-content">${APIURL}</div>
     <h2>1. 發送 request(Data 加密前)</h2>
-    <pre>${JSON.stringify(PayloadBeforeAES, null, 2)}</pre>
+    <div class="json-content">${JSON.stringify(PayloadBeforeAES, null, 2)}</div>
     <h2>2. 發送 request(Data 加密後)</h2>
-    <pre>${JSON.stringify(PayloadAfterAES, null, 2)}</pre>
+    <div class="json-content">${JSON.stringify(PayloadAfterAES, null, 2)}</div>
     <h2>3. 綠界回傳：</h2>
-    <pre>${JSON.stringify(response.data, null, 2)}</pre>
+    <div class="json-content">${JSON.stringify(response.data, null, 2)}</div>
     <h2>4. Data 解密後：</h2>
-    <pre>${AESDecoder(response.data.Data)}</pre>
+    <div class="json-content">${JSON.stringify(
+      JSON.parse(AESDecoder(response.data.Data)),
+      null,
+      2
+    )}</div>
+  </div>
   </body>
   </html>
   `;

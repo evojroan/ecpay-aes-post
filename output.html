@@ -3,17 +3,32 @@
   <html>
   <head>
       <title>顯示文本</title>
+      <style>
+      
+        .json-content { 
+        width:50%;
+        word-wrap:break-word;
+          white-space: pre-wrap;
+          font-family: monospace;
+          background-color: #f5f5f5;
+          padding: 10px;
+        }
+      </style>
   </head>
   <body>
+  <div>
+
+  <h2>呼叫 API：</h2>
+  <div class="json-content">https://einvoice-stage.ecpay.com.tw/B2CInvoice/Issue</div>
     <h2>1. 發送 request(Data 加密前)</h2>
-    <pre>{
+    <div class="json-content">{
   "MerchantID": 2000132,
   "RqHeader": {
-    "Timestamp": 1733215557
+    "Timestamp": 1733981762
   },
   "Data": {
     "MerchantID": 2000132,
-    "RelateNumber": 1733215557,
+    "RelateNumber": 1733981762,
     "CustomerName": "alicelin",
     "CustomerAddr": "台北市大馬路1號",
     "CustomerPhone": "0999999999",
@@ -40,30 +55,37 @@
     ],
     "InvType": "07"
   }
-}</pre>
+}</div>
     <h2>2. 發送 request(Data 加密後)</h2>
-    <pre>{
+    <div class="json-content">{
   "MerchantID": 2000132,
   "RqHeader": {
-    "Timestamp": 1733215557
+    "Timestamp": 1733981762
   },
-  "Data": "XeEOdHpTRvxKEqs/JD9RSRJ2Cfu1YWlq5AJ9R3T5JSwF+XMtYVGAaLnolyIv7BEmaloNmgjFcZfgITDozs+mMpThV3GkUqP5gfTsLJDEravWFD4dQLYC9SFoTgxEmmEWwQHZ/Xa9mpzh+mETTsJn4YD1uAujA/lihVoS4yqi+3tjh5Utwei5w2rXBkUletJ1fUCxry+bySZzbLKyRxrRqJSALBzg5lKsgqgmwcvS6PtcCsGtWTK3uIvVV5H5eNHc2t4RbDBSPAmxRwredPYeZ9vA6ub2sf2TAJ+6KOOdUj6ej+RjVuXYrvBd21oJ5W5zTagoikbtfZ4D99bVzCVbSshHDFP6KjTJKlKng38aYlU6vV6UFPFlctb3GHmO0rtlz9jK7qmoTOu5rjZNG3ufTOJpyI2p079L9kCNXCsblag1PMAj7iuCcL1bVWOikZuiGWAhSL9GPMtIQfc8Q9uAZ5E5yDl33dmT2qKFVpAYlgmF3DvhkIp3YZMvmuZPIChLlOa4ykefv4t5McnP87NAlfKtnEh8ShrDQml/U6b0QWCtiBnfxtAcAPhsOTPjtNxPCvSdi2r+8s+hTT4MdQGiQgRlgkHfTK+ZEAWIln9L6AlIphtAQvLDVZ4v320AlKbXIYGXTpAVFk6YCPMjb/Wcyx7FzwLHHmzTHpgZvwIkt+uQJmVauuDAdvQ2ijTZOmmM0IUhJpUtY5u9lhdDzzcUejWt7nJvMVXptGSEovZ9dZAj1SpI34OT2HmZkcpRlCLcc2O9gktXj/LSwzM0rWmCq9ngjrMGmuUKgnvMF0RayW6M5jU4FGy8RBIaaNWhDYrSc2TYLeTdgusLpmXY9Gau5WvckhFkEjO10dqhjJnMtZ3+k3lm083LIPkiot5h2ktkPRv/WxYfUjZ9Pb6xEWzedMmQzKP3HDfGQmvdooajBt8="
-}</pre>
+  "Data": "XeEOdHpTRvxKEqs/JD9RSRJ2Cfu1YWlq5AJ9R3T5JSwF+XMtYVGAaLnolyIv7BEmZLhFSvom+D4znIh6SxTB9uFYEpbLlvQxgIndCNsb+UozeTHbIaYLGpddUxtRMD7/lW621UMoQB5lLdXyZjjy+Z59FFPuuVm8z6BZjfDiiLUZQ4fBByRz9mzCDVX7UPuX3JuGs7tLYTg/GM5f8X/HIZ0cawJ8A4ex8qwwVuAl4B5bqDmHaqXmn/tMXcr8uTlqIGdpTLgKuBbCUXTWfAUMV6BriLnHZRgPNotjTg+dxCqOGkgFFKNiOkv0mUryWIGw23VCy/eimTj+koQDOjJUIQlDgMUht46VROnCkY6tc5umNi6zh8WBQP2P1MYIx4e/Zha3xA8+CMB0wumfeiRamnjazIBkRLa/Y6cUZkWYEqig59tlCAWU+jTKFOGdjZ8UKgHxKkE7CPsU38ZjIKUppmN2pez66ZbLosmQbEmwpALzpC38yCUmDPCkumUhvoT8Pa5Jm7uCoWXlDFQvtT4N3okcBlU4AxLzomnnz8dBQjAR8HN/uLoNHnBwZ8HlAnMnUG8BqiJJrhqKQT2mHl8dNV7MzZUu1MmcV8CQOPoXIRDwOQgrcO39QXnReMvwykoNnHhlSWEn9RBXJrRcnv8wWJuzYgje2dAyStgCKKNTXatQMOBRFrRPVfe3eHMUz/Ce7UGuNwQzg1veZYIfbTgtRIdrePqzvBqJUsyPqwyuG7jgdJC0mE4hn10xm0faVYYAsNH2A7NCtW7cj7QqfxxJySFdhIbTGp7tUGufRfhAZoRGsl1+kPrMXq4nVqADDgjslvfDPPF8iadoLDGBt3vt4BnYAFI4ay7XrX+sjaBMDOk2/WIjBwuvJ3xFl6jRTnFizkudHRa41dMlYWFSxuJjiA+wqQUD4eLx7dm7ZvUhIFo="
+}</div>
     <h2>3. 綠界回傳：</h2>
-    <pre>{
+    <div class="json-content">{
   "PlatformID": 0,
   "MerchantID": 2000132,
   "RpHeader": {
-    "Timestamp": 1733215558,
-    "RqID": "4b5af87a-be50-499c-b42b-7d7296e35654",
+    "Timestamp": 1733981763,
+    "RqID": "b308dee3-72c7-46a5-81ed-ff81c4fdb2c8",
     "Revision": null
   },
   "TransCode": 1,
   "TransMsg": "Success",
-  "Data": "6xafbXXjyQnBuHWKr5nDl3elIhyu1OUPiZsXnreThwQMIYbPFyWZHL9ALxDT9maQm1zzov+o2Suh56+NpeqrtK7A6EwTVdAJGbl/4ATxEScKukTLEjpSflzkNBeN513sqfGsjM8REOlO29AJFOeRnija6ghyY+3THmh8kCSHXTBWDPcgTa44ucw5Kt+6jj6TLIXbOMYjlspVRazIAEdbhv6ZXsr0ebmyWaLtYr7jjdWqSHNUm9WBGLQEvtT0QmBvzwk7yNloWmNIU4Mfz/NALs1SuvGXsMQq37uVZWN32LO5nKQ3rDul/G1VUj8wFFhT"
-}</pre>
+  "Data": "6xafbXXjyQnBuHWKr5nDl3elIhyu1OUPiZsXnreThwQMIYbPFyWZHL9ALxDT9maQm1zzov+o2Suh56+NpeqrtK7A6EwTVdAJGbl/4ATxEScKukTLEjpSflzkNBeN513sqfGsjM8REOlO29AJFOeRns50sHJ29ny76JdZRXbs6gr2DLBgqlNEX1DUY6XVEeLS5a7Pe1HpC6JTtKM39dMUk9Bjrn8HMXC1YKZ1JV9wNdajAYsqfiaUY0l8yuJJ7VV9rJXrdfHCNKAZ+mjsYQSCTqORwy18/C5ZZWLnExQWIh16Ojtxv7j7r3CbtOy451MT"
+}</div>
     <h2>4. Data 解密後：</h2>
-    <pre>{"RtnCode":1,"RtnMsg":"開立發票成功","InvoiceNo":"VF10017027","InvoiceDate":"2024-12-03+16:45:57","RandomNumber":"8139"}</pre>
+    <div class="json-content">{
+  "RtnCode": 1,
+  "RtnMsg": "開立發票成功",
+  "InvoiceNo": "VF10033440",
+  "InvoiceDate": "2024-12-12+13:36:02",
+  "RandomNumber": "5314"
+}</div>
+  </div>
   </body>
   </html>
   
